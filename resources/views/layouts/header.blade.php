@@ -19,7 +19,14 @@
 			
 			<!-- logbtn -->
 			<!-- <input type="button" value="Logout" /> -->
-			<button class="logout-btn"><a href="index.php?log=1">Logout</a> </button>
+			<button class="logout-btn">
+				@guest
+						<a class="nav-link" href="{{ route('login.form') }}">Login</a>
+				@else
+						<a class="nav-link" href="{{ route('logout') }}">Logout </a>
+					
+				@endguest
+			</button>
 			<!-- end logbtn -->
 			
 		</div>

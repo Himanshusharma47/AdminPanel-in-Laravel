@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +32,7 @@ Route::get('/add-product',  [ViewController::class, 'add_product'])->name('add.p
 
 Route::get('/change-password',  [ViewController::class, 'change_password'])->name('change.password');
 
+
+// for login route
+Route::post('/login-data', [LoginController::class, 'login_data'])->name('login.data');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
