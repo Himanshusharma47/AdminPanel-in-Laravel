@@ -17,18 +17,13 @@
 			<img src="{{asset('assets/images/logo.jpg')}}" />
 			<!-- admin logo end -->
 			
-			<!-- logbtn -->
-			<!-- <input type="button" value="Logout" /> -->
-			<button class="logout-btn">
-				@guest
-						<a class="nav-link" href="{{ route('login.form') }}">Login</a>
-				@else
-						<a class="nav-link" href="{{ route('logout') }}">Logout </a>
-					
-				@endguest
-			</button>
-			<!-- end logbtn -->
-			
+			<!-- Logout button starts here -->
+			@if (!request()->routeIs('login.form'))
+			<a class="nav-link" href="{{ Route('logout') }}">
+				<input type="button" class="logout-btn" value="Logout" />
+			</a>
+			@endif	
+			<!-- Logout button ends here -->
 		</div>
 <!-- mainontainer1 End Here --> 
 

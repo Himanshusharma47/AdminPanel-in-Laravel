@@ -12,22 +12,23 @@
     <div class="add-container">
         <div class="add-line">Add Page</div>
         
-        <form method="post">
-            <input type="hidden" name="editid" value="<?php if(!empty($r['id'])) echo $r['id']; ?>" />
+        <form action="{{isset($findrow) ? url( 'edit-data/'.$findrow[0]->id) : route('add.page.data') }}" method="post">
+            @csrf
+            {{-- <input type="hidden" name="editid"  value="{{$findrow[0]->id)}}"/> --}}
             
             <!-- parent table start here -->
             <table class="parent-table">
-                
+               
                 <tr>
                     <td class="rightalign">Name*</td>
-                    <td><input class="length" value="<?php if(!empty($r['name'])) echo $r['name']; ?>" name="name" type="text" /></td>
+                    <td><input class="length" value="{{isset($findrow[0]->name) ? $findrow[0]->name : ''}}" name="name" type="text" /></td>
                 </tr>
             
                 <tr>
                     <td class="rightalign">Content</td>
                     <td>
-                        <textarea class="box" name="content">
-                        <?php if(!empty($r['content'])) echo $r['content']; ?>
+                        <textarea class="box"name="content">
+                            {{isset($findrow[0]->content) ? $findrow[0]->content : ''}}
                         </textarea>
                     </td>
                 </tr>
@@ -35,18 +36,7 @@
                 <tr>
                     <td class="rightalign">Status</td>
                     <td>
-                        <?php if(!empty($r['status']) && $r['status']==1)
-                            { 	
-                        ?>
-                                <input checked type="checkbox" name="status"/>
-                        <?php 
-                            }
-                            else {
-                        ?>
-                                <input  type="checkbox" name="status"/>
-                        <?php
-                                } 
-                        ?>
+                        <input checked type="checkbox" name="status"  {{isset($findrow[0]->content) ?'checked' : ''}}/>
                     </td>
                 </tr>	
             </table>

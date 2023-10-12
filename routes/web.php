@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CrudController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,4 +36,12 @@ Route::get('/change-password',  [ViewController::class, 'change_password'])->nam
 
 // for login route
 Route::post('/login-data', [LoginController::class, 'login_data'])->name('login.data');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// add page crud satrt here 
+Route::post('/add-page-data', [CrudController::class, 'add_page_data'])->name('add.page.data');
+Route::get('delete-data/{id}', [CrudController::class, 'delete_data']);
+Route::get('edit-display/{id}', [CrudController::class, 'edit_display']);
+Route::post('edit-data/{id}', [CrudController::class, 'edit_data']);
+
+// Route::post('/add-page-data', [CrudController::class, 'add_page_data'])->name('add.page.data');

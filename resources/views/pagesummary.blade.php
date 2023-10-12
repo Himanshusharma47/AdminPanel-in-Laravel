@@ -42,14 +42,20 @@
         </thead>
         
         <tbody>
+            @foreach ($data as $val )            
             <tr>
-                
+                <td>{{$val->id}}</td>
+                <td>{{$val->name}}</td>
+                <td>{{$val->content}}</td>
+                <td>{{$val->status}}</td>
+                <td><a href="{{'edit-display/'.$val->id}}">Edit</a></td>
+                <td><a href="{{'delete-data/'.$val->id}}">Del</a></td>
             </tr>
-
+            @endforeach
+            
             <tr>
                 <td colspan="6" >
-                    
-                        
+                    {{$data->links('pagi')}}
                 </td>
             </tr>
         </tbody>

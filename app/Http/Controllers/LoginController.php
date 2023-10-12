@@ -24,18 +24,14 @@ class LoginController extends Controller
             
         if ($user && $user->password === $credentials['password']) {
             // Authentication successful
+            Auth::login($user);
             return redirect()->intended('add-page');
         }
         return redirect("login-form")->with('error', 'Oops! You have entered invalid credentials');
     }
 
-    public function addpage(){
-        if(Auth::check()){
-            return view('addpage');
-        }
-        return redirect("/login-form")->withSuccess('Opps! You do not have access');
-    }
-    public function logout() {
+  
+    public function logout(){
         Session::flush();
         Auth::logout();
   
