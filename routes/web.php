@@ -13,7 +13,7 @@ use App\Http\Controllers\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// this is main file 
 Route::view('/', 'welcome');
 
 Route::get('/login-form', [ViewController::class, 'login_form'])->name('login.form');
