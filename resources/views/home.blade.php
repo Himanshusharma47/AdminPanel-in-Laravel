@@ -2,7 +2,13 @@
 @section('login-form')
     <!-- content start here  -->
 <div class="table-content" >
-				
+	@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+    @endif
+		
+    
     <form action="{{ route('login.data') }}" method="post">
         @csrf
         <!-- login table starts here -->

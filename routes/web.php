@@ -31,7 +31,7 @@ Route::get('/product-summary',  [ViewController::class, 'product_summary'])->nam
 
 Route::get('/add-product',  [ViewController::class, 'add_product'])->name('add.product');
 
-Route::get('/change-password',  [ViewController::class, 'change_password'])->name('change.password');
+Route::get('/password',  [ViewController::class, 'password'])->name('password');
 
 
 // for login route
@@ -43,5 +43,17 @@ Route::post('/add-page-data', [CrudController::class, 'add_page_data'])->name('a
 Route::get('delete-data/{id}', [CrudController::class, 'delete_data']);
 Route::get('edit-display/{id}', [CrudController::class, 'edit_display']);
 Route::post('edit-data/{id}', [CrudController::class, 'edit_data']);
+Route::post('/search', [CrudController::class, 'search'])->name('search');
 
-// Route::post('/add-page-data', [CrudController::class, 'add_page_data'])->name('add.page.data');
+
+
+// add category crud start here
+Route::post('/add-category-data', [CrudController::class, 'add_category_data'])->name('add.category.data');
+Route::get('category-delete-data/{id}', [CrudController::class, 'category_delete_data']);
+Route::get('category-edit-display/{id}', [CrudController::class, 'category_edit_display']);
+Route::post('category-edit-data/{id}', [CrudController::class, 'category_edit_data']);
+Route::post('/search-category', [CrudController::class, 'search_category'])->name('search.category');
+
+
+// change password here 
+Route::post('/change-password', [CrudController::class, 'change_password'])->name('change.password');

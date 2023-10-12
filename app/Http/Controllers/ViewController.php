@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Addcategory;
 use App\Models\Addpage;
 use App\Models\Login;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +31,8 @@ class ViewController extends Controller
     }
 
     public function category_summary(){
-        return view('categorysummary');
+        $data = Addcategory::paginate(4);
+        return view('categorysummary', compact('data'));
     }
 
     public function add_category(){
@@ -44,7 +47,11 @@ class ViewController extends Controller
         return view('addproduct');
     }
     
-    public function change_password(){
+    public function password(){
         return view('changepassword');
     }
+
+
+
+
 }

@@ -9,7 +9,8 @@
     <p class="thisline">This section display the list of pages </p>
     <p class="clickline"><a href="#">Click here</a> to create <a href="#">New Page</a></p>
     
-    <form >
+    <form  method="post" action="{{route('search')}}">
+        @csrf
         <!-- search-table start  here -->
         <table class="searchtable">
             <tr>
@@ -17,8 +18,8 @@
             </tr>
             <tr>
                 <td>Search by Page Name</td>
-                <td><input type="text" name="s" />
-                <button type="submit" id="sr-btn">Search</button>
+                <td><input type="text" name="sname" />
+                <button type="submit" id="sr-btn" name="search">Search</button>
                 </td>
             </tr>
             
@@ -48,8 +49,8 @@
                 <td>{{$val->name}}</td>
                 <td>{{$val->content}}</td>
                 <td>{{$val->status}}</td>
-                <td><a href="{{'edit-display/'.$val->id}}">Edit</a></td>
-                <td><a href="{{'delete-data/'.$val->id}}">Del</a></td>
+                <td><a href="{{'edit-display/'.$val->id}}"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                <td><a href="{{'delete-data/'.$val->id}}"><i class="fa-solid fa-user-xmark" style="color: #ff0000;"></i></a></td>
             </tr>
             @endforeach
             
@@ -64,3 +65,18 @@
 </div>
 <!-- content2 end  -->
 @endsection
+
+<style>
+    /* laravel pagination css */
+.pagination{
+	list-style: none;
+}
+.pagination li{
+	margin:auto;
+	display: inline-block;
+	border: 1px solid black;
+	padding: 3px 7px;
+}
+
+/* laravel pagination css */
+</style>

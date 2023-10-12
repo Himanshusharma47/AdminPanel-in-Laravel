@@ -11,7 +11,8 @@
 				<p class="thisline">This section display the list of Catogories. </p>
 				<p class="clickline"><a href="#">Click here</a> to create <a href="#">New Category</a></p>
 				
-				<form>
+				<form method="post" action="{{route('search.category')}}">
+					@csrf
 					<!-- search-table start  here -->
 					<table class="searchtable">
 						<tr>
@@ -19,7 +20,7 @@
 						</tr>
 						<tr>
 							<td>Search by Category Name</td>
-							<td><input type="text" name="s" />
+							<td><input type="text" name="sname" />
 							<button type="submit" id="sr-btn">Search</button>
 							</td>
 						</tr>
@@ -42,16 +43,18 @@
 					</thead>
 					
 					<tbody>
-					
-					
+						@foreach ($data as $item)
 						<tr>
-							
+							<td>{{$item->id}}</td>
+							<td>{{$item->categoryname}}</td>
+							<td><a href="{{'category-edit-display/'.$item->id}}"><i class="fa-regular fa-pen-to-square"></i></a></td>
+
+							<td><a href="{{'category-delete-data/'.$item->id}}"><i class="fa-solid fa-user-xmark" style="color: #ff0000;"></i></a></td>
 						</tr>
-						
-						
+						@endforeach
 						<tr>
 							<td colspan="6" >
-								
+								{{$data->links('pagi')}}
 							</td>
 						</tr>
 						
