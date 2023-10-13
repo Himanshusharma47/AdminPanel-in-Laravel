@@ -8,6 +8,21 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 	<script src="https://kit.fontawesome.com/9e92271c4e.js" crossorigin="anonymous"></script>
     <title>Document</title>
+	
+	<style>
+		/* laravel pagination css */
+	.pagination{
+		list-style: none;
+	}
+	.pagination li{
+		margin:auto;
+		display: inline-block;
+		border: 1px solid black;
+		padding: 3px 7px;
+	}
+
+	/* laravel pagination css */
+	</style>
 </head>
 <body>
 

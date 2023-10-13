@@ -8,7 +8,8 @@
     <p class="thisline">This section display the list of Products. </p>
     <p class="clickline"><a href="#">Click here</a> to create <a href="#">New Product</a></p>
     
-    <form >
+    <form method="post" action="{{url('/search-product')}}">
+        @csrf
         <!-- search-table start  here -->
         <table class="searchtable">
             <tr>
@@ -16,7 +17,7 @@
             </tr>
             <tr>
                 <td>Search by Product Name</td>
-                <td><input type="text" name="s" />
+                <td><input type="text" name="sname" />
                 <button type="submit" id="sr-btn">Search</button>
                 </td>
             </tr>
@@ -36,7 +37,6 @@
                 <th>Product Name</th>
                 <th>Product Descripton</th>
                 <th>Product Price</th>
-                <th>Product Stock</th>
                 <th>Product Image</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -44,15 +44,27 @@
         </thead>
         
         <tbody>
-            
-           
-            
-            <td colspan="8" >
-                   
+            @foreach ($products as $product)
+                <tr>
+                    <td>{{$product->id}}</td>
+                    <td>{{$product->pname}}</td>
+                    <td>{{$product->pname}}</td>
+                    <td>{{$product->pdescription}}</td>
+                    <td>{{$product->pprice}}</td>
+                    <td>
+                        @if ($product->pimage)
+                            <img src="{{asset($product->pimage)}}" width="50" height="40">
+                        @endif
+                    </td>
+                    <td><a href="{{'product-edit-display/'.$product->id}}"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                    <td><a href="{{'product-delete-data/'.$product->id}}"><i class="fa-solid fa-user-xmark" style="color: #ff0000;"></i></a></td>
+                </tr>
+            @endforeach
+            <tr>
+                <td colspan="8" >
+                    {{$products->links('pagi')}}
                 </td>
-            </tr>
-            
-            
+            </tr>   
         </tbody>
     </table>
     <!-- idtable end here -->

@@ -21,13 +21,13 @@
                
                 <tr>
                     <td class="rightalign">Name*</td>
-                    <td><input class="length" value="{{isset($findrow[0]->name) ? $findrow[0]->name : ''}}" name="name" type="text" /></td>
+                    <td><input class="length" value="{{isset($findrow[0]->name) ? $findrow[0]->name : ''}}" name="name" type="text" required/></td>
                 </tr>
             
                 <tr>
                     <td class="rightalign">Content</td>
                     <td>
-                        <textarea class="box"name="content">
+                        <textarea class="box"name="content" required>
                             {{isset($findrow[0]->content) ? $findrow[0]->content : ''}}
                         </textarea>
                     </td>

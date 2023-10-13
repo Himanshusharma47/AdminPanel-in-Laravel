@@ -65,18 +65,3 @@
 </div>
 <!-- content2 end  -->
 @endsection
-
-<style>
-    /* laravel pagination css */
-.pagination{
-	list-style: none;
-}
-.pagination li{
-	margin:auto;
-	display: inline-block;
-	border: 1px solid black;
-	padding: 3px 7px;
-}
-
-/* laravel pagination css */
-</style>

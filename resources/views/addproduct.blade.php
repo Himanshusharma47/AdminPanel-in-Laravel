@@ -10,37 +10,44 @@
     <div class="add-container">
         <div class="add-line">Add Product</div>
         
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" action="{{isset($findrow) ? url('product-edit-data/' . $findrow[0]->id) :route('add.product.data')}}">
+            @csrf
             <input type="hidden" name="editid"  />
             
             <!-- parent table start here -->
             <table class="parent-table">
+                @if((request()->routeIs('add.product')))
                 <tr>
                     <td class="rightalign">Select Category*</td>
                     <td>
-                        <select name="catname">
-                        <option>&lt; select category &gt;</option>
-                       
+                        <select name="catid">
+                        <option >&lt; select category &gt;</option>
+                            @foreach ($data as $item)
+                            <option value="{{$item->id}}" >{{$item->categoryname}}</option>
+                            @endforeach
                         </select>
                     </td>
                 </tr>
+                @endif
                 
                 <tr>
                     <td class="rightalign">Product Name*</td>
-                    <td><input class="length" name="pname" type="text" /></td>
+                    <td><input class="length" name="pname" type="text"  value="{{isset($findrow[0]->pname) ? $findrow[0]->pname : ''}}" required/></td>
                 </tr>
                 <tr>
                     <td class="rightalign">Product Description*</td>
-                    <td><input class="length" name="pdesc" type="text" /></td>
+                    <td><input class="length" name="pdesc" type="text" value="{{isset($findrow[0]->pdescription) ? $findrow[0]->pdescription : ''}}" required/></td>
                 </tr>
                 <tr>
                     <td class="rightalign">Product Price*</td>
-                    <td><input class="length" name="pprice" type="text" /></td>
+                    <td><input class="length" name="pprice" type="text" value="{{isset($findrow[0]->pprice) ? $findrow[0]->pprice : ''}}" required/></td>
                 </tr>
+                @if((request()->routeIs('add.product')))
                 <tr>
                     <td class="rightalign">Product Image*</td>
-                    <td><input class="length" name="pimage" type="file" /></td>
+                    <td><input class="length" name="pimage" type="file" value="{{isset($findrow[0]->pimage) ? $findrow[0]->pimage : ''}}" required/></td>
                 </tr>
+               @endif
             </table>
             <!-- parent table end here -->
                     

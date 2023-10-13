@@ -2,14 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\session; 
 use App\Models\Addpage;
 use App\Models\Login;
 use App\Models\Addcategory;
+use App\Models\Addproduct;
 use Illuminate\Http\Request;
 
 class CrudController extends Controller
 {
     public function add_page_data(Request $request){
+
+        $request->validate([
+            'name' => 'required',
+            'content' => 'required',
+        ]);
+   
+
         $add = new Addpage;
         if($request->isMethod('post'))
         {
@@ -59,6 +70,10 @@ class CrudController extends Controller
     // *********** add category function start here ***********************
 
     public function add_category_data(Request $request){
+        $request->validate([
+            'catname' => 'required',
+        ]);
+
         $add = new Addcategory;
         if($request->isMethod('post'))
         {
@@ -100,7 +115,72 @@ class CrudController extends Controller
     }
 
 
-    // change password here  
+    // ********* add product crud function start here *********
+    public function add_product_data(Request $request){
+        $request->validate([
+            'pname' => 'required',
+            'pdesc' => 'required',
+            'pprice' => 'required',
+            'pimage' =>  'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $add = new Addproduct;
+        if ($request->hasFile('pimage')) {
+            $image = $request->file('pimage');
+            $customName =  time().'.'. $image->getClientOriginalExtension();
+            $imagePath = $image->move('product_images', $customName, 'public');
+        }
+
+        if($request->isMethod('post'))
+        {
+            $add->category_id = $request->get('catid');
+            $add->pname = $request->get('pname');
+            $add->pdescription = $request->get('pdesc');
+            $add->pprice = $request->get('pprice');
+            $add->pimage = $imagePath;
+            $add->save();
+        }
+        return redirect('add-product');
+    }
+
+    public function product_delete_data($id){
+        $ob  = Addproduct::find($id);
+        $ob->delete();
+        return redirect('/product-summary');
+    }
+
+    public function product_edit_display($id){
+        $findrow  = Addproduct::where('id',$id)->get();
+        return view('addproduct', compact('findrow'));
+    }
+
+    public function product_edit_data(Request $request, $id=''){
+        $add = Addproduct::find($id);
+        if($request->isMethod('post'))
+        {
+            $add->pname = $request->get('pname'); 
+            $add->pdescription = $request->get('pdesc'); 
+            $add->pprice = $request->get('pprice');
+            $add->save(); 
+        }
+        return redirect('product-summary');
+    }
+
+    public function search_product(Request $request){
+        if($request->isMethod('post'))
+        {
+            $name = $request->get('sname');
+            $products = Addproduct::where('pname', 'LIKE', '%'. $name . '%')->paginate(2);
+        }
+        return view('productsummary', compact('products'));
+        // echo "hello";
+    }
+
+
+
+
+    // *********** change password here **************
+
     public function change_password(Request $request){
         // $data = new Login;
         if($request->isMethod('post'))

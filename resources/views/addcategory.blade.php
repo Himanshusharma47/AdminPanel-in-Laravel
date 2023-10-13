@@ -12,13 +12,13 @@
         
         <form method="post" action="{{isset($findrow) ? url('category-edit-data/'. $findrow[0]->id) :  route('add.category.data')}}">
             @csrf
-            <input type="hidden" name="editid"  />
+            <input type="hidden" name="editid"  required/>
             
             <!-- parent table start here -->
             <table class="parent-table">
                 <tr>
                     <td class="rightalign">Category Name*</td>
-                    <td><input class="length"  name="catname" type="text" value="{{isset($findrow[0]->categoryname) ? $findrow[0]->categoryname : ''}}"/></td>
+                    <td><input class="length"  name="catname" type="text" value="{{isset($findrow[0]->categoryname) ? $findrow[0]->categoryname : ''}}" required/></td>
                 </tr>
             </table>
             <!-- parent table end here -->

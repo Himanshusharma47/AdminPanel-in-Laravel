@@ -57,3 +57,10 @@ Route::post('/search-category', [CrudController::class, 'search_category'])->nam
 
 // change password here 
 Route::post('/change-password', [CrudController::class, 'change_password'])->name('change.password');
+
+// add products crud start here
+Route::post('/add-product-data', [CrudController::class, 'add_product_data'])->name('add.product.data');
+Route::get('product-delete-data/{id}', [CrudController::class, 'product_delete_data']);
+Route::get('product-edit-display/{id}', [CrudController::class, 'product_edit_display']);
+Route::post('product-edit-data/{id}', [CrudController::class, 'product_edit_data']);
+Route::post('/search-product', [CrudController::class, 'search_product']);
