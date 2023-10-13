@@ -18,8 +18,13 @@ class Addproduct extends Model
 
     public function getCategoryNameAttribute()
     {
-        return $this->category->categoryname;
+        if ($this->category) {
+            return $this->category->categoryname;
+        } else {
+            return 'No Category'; // or any default value you prefer
+        }
     }
+
 
 
 }

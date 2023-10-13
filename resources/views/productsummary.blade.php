@@ -46,8 +46,8 @@
         <tbody>
             @foreach ($products as $product)
                 <tr>
-                    <td>{{$product->id}}</td>
-                    <td>{{$product->pname}}</td>
+                    <td>{{$product->id}}</td>   
+                    <td>{{$product->categoryname}}</td>
                     <td>{{$product->pname}}</td>
                     <td>{{$product->pdescription}}</td>
                     <td>{{$product->pprice}}</td>
@@ -57,7 +57,7 @@
                         @endif
                     </td>
                     <td><a href="{{'product-edit-display/'.$product->id}}"><i class="fa-regular fa-pen-to-square"></i></a></td>
-                    <td><a href="{{'product-delete-data/'.$product->id}}"><i class="fa-solid fa-user-xmark" style="color: #ff0000;"></i></a></td>
+                    <td><a href="{{'product-delete-data/'.$product->id}}"><i class="fa-solid fa-trash-arrow-up" style="color: #ff0000;"></i></a></td>
                 </tr>
             @endforeach
             <tr>

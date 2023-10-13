@@ -50,7 +50,7 @@
                 <td>{{$val->content}}</td>
                 <td>{{$val->status}}</td>
                 <td><a href="{{'edit-display/'.$val->id}}"><i class="fa-regular fa-pen-to-square"></i></a></td>
-                <td><a href="{{'delete-data/'.$val->id}}"><i class="fa-solid fa-user-xmark" style="color: #ff0000;"></i></a></td>
+                <td><a href="{{'delete-data/'.$val->id}}"><i class="fa-solid fa-trash-arrow-up" style="color: #ff0000;"></i></a></td>
             </tr>
             @endforeach
             
