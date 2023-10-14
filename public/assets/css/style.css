@@ -59,11 +59,36 @@ a{
 /* login page css start here */
 
 .table-content{
-	width:300px;
+	width:385px;
 	margin:auto;
-	margin-top:50px;
+	margin-top:100px;
+	position: relative;
 	
 }
+
+/* laravel css for error handling*/
+.error-danger{
+	position: absolute;
+	top: -50px;
+	color: red;
+	padding: 10px;
+	width: 500px;
+	border: 1px solid brown;
+	background-color: rgb(255, 152, 152);
+	border-radius: 2px;
+}
+
+.success-message{
+	position: absolute;
+	top: -50px;
+	color: red;
+	padding: 10px;
+	width: 500px;
+	border: 1px solid brown;
+	background-color: rgb(255, 152, 152);
+	border-radius: 2px;
+}
+/* laravel css */
 
 .logintable{
 	font-size:15px;
