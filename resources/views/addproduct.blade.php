@@ -42,6 +42,10 @@
                     <td class="rightalign">Product Price*</td>
                     <td><input class="length" name="pprice" type="text" value="{{isset($findrow[0]->pprice) ? $findrow[0]->pprice : ''}}" required/></td>
                 </tr>
+                <tr>
+                    <td class="rightalign">Product Stock*</td>
+                    <td><input class="length" name="pstock" type="text" value="{{isset($findrow[0]->pstock) ? $findrow[0]->pstock : ''}}" required/></td>
+                </tr>
                 @if((request()->routeIs('add.product')))
                 <tr>
                     <td class="rightalign">Product Image*</td>

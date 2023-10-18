@@ -121,6 +121,7 @@ class CrudController extends Controller
             'pname' => 'required',
             'pdesc' => 'required',
             'pprice' => 'required',
+            'pstock' => 'required',
             'pimage' =>  'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -137,6 +138,7 @@ class CrudController extends Controller
             $add->pname = $request->get('pname');
             $add->pdescription = $request->get('pdesc');
             $add->pprice = $request->get('pprice');
+            $add->pstock = $request->get('pstock');
             $add->pimage = $imagePath;
             $add->save();
         }
@@ -161,6 +163,7 @@ class CrudController extends Controller
             $add->pname = $request->get('pname'); 
             $add->pdescription = $request->get('pdesc'); 
             $add->pprice = $request->get('pprice');
+            $add->pstock = $request->get('pstock');
             $add->save(); 
         }
         return redirect('product-summary');
