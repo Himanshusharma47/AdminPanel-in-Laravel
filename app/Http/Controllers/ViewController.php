@@ -51,7 +51,7 @@ class ViewController extends Controller
 
     public function product_summary(){
         if(Auth::check()){
-            $products=Addproduct::with('category')->paginate(2);
+            $products=Addproduct::with('category')->paginate(4);
             return view('productsummary',compact('products'));
         }
         return redirect("/login-form")->with('error','Opps! You do not have access');
