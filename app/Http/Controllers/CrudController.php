@@ -173,7 +173,7 @@ class CrudController extends Controller
         if($request->isMethod('post'))
         {
             $name = $request->get('sname');
-            $products = Addproduct::where('pname', 'LIKE', '%'. $name . '%')->paginate(2);
+            $products = Addproduct::where('pname', 'LIKE', '%'. $name . '%')->paginate(4);
         }
         return view('productsummary', compact('products'));
         // echo "hello";
