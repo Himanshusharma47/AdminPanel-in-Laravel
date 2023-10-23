@@ -14,9 +14,10 @@ use App\Http\Controllers\CrudController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// this is main file 
+// this is main file
 Route::view('/', 'welcome');
 
+// view data crud
 Route::get('/login-form', [ViewController::class, 'login_form'])->name('login.form');
 
 Route::get('/page-summary',  [ViewController::class, 'page_summary'])->name('page.summary');
@@ -38,13 +39,12 @@ Route::get('/password',  [ViewController::class, 'password'])->name('password');
 Route::post('/login-data', [LoginController::class, 'login_data'])->name('login.data');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// add page crud satrt here 
+// add page crud satrt here
 Route::post('/add-page-data', [CrudController::class, 'add_page_data'])->name('add.page.data');
 Route::get('delete-data/{id}', [CrudController::class, 'delete_data']);
 Route::get('edit-display/{id}', [CrudController::class, 'edit_display']);
 Route::post('edit-data/{id}', [CrudController::class, 'edit_data']);
 Route::post('/search', [CrudController::class, 'search'])->name('search');
-
 
 
 // add category crud start here
@@ -55,10 +55,10 @@ Route::post('category-edit-data/{id}', [CrudController::class, 'category_edit_da
 Route::post('/search-category', [CrudController::class, 'search_category'])->name('search.category');
 
 
-// change password here 
+// change password here
 Route::post('/change-password', [CrudController::class, 'change_password'])->name('change.password');
 
-// add products crud start here
+// add products crud  start here
 Route::post('/add-product-data', [CrudController::class, 'add_product_data'])->name('add.product.data');
 Route::get('product-delete-data/{id}', [CrudController::class, 'product_delete_data']);
 Route::get('product-edit-display/{id}', [CrudController::class, 'product_edit_display']);

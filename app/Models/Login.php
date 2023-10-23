@@ -10,6 +10,7 @@ use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 class Login extends Model implements Authenticatable
 {
     use HasFactory;
+    // for user authentication using namespace
     use AuthenticatableTrait;
     protected $table = 'users';
     public $timestamps  = false;

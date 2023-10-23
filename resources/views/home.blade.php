@@ -1,4 +1,5 @@
 @extends('layouts.main')
+{{-- login form section start here --}}
 @section('login-form')
     <!-- content start here  -->
     <div class="table-content" >
@@ -15,7 +16,7 @@
                 <td></td>
                 <td class="log">Login</td>
             </tr>
-            
+
             <tr>
                 <td>Username</td>
                 <td><input type="text" name="username"  required autofocus/>
@@ -28,7 +29,6 @@
                     @endif --}}
                 </td>
             </tr>
-            
             <tr>
                 <td>Password</td>
                 <td><input type="password"  name="password"  required />
