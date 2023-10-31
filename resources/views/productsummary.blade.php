@@ -1,15 +1,20 @@
 @extends('layouts.main')
 
-{{-- product summary start here --}}
+<!-- product summary start here -->
 @section('product-summary-section')
+
+<!-- leftlist attached here -->
 @include('layouts.leftlist')
+
  <!-- content2 start  -->
  <div class="content2">
+
     <h4 class="pm">Product Manager</h4>
     <p class="thisline">This section display the list of Products. </p>
     <p class="clickline"><a href="#">Click here</a> to create <a href="#">New Product</a></p>
-    {{-- form start here --}}
-    <form method="post" action="{{url('/search-product')}}">
+
+    <!-- form start here -->
+    <form method="post" action = "{{url('/search-product')}}">
         @csrf
         <!-- search-table start  here -->
         <table class="searchtable">
@@ -43,7 +48,7 @@
                 <th>Delete</th>
             </tr>
         </thead>
-        {{-- table body --}}
+
         <tbody>
             @foreach ($products as $product)
                 <tr>
@@ -54,11 +59,11 @@
                     <td>{{$product->pprice}}</td>
                     <td>
                         @if ($product->pimage)
-                            <img src="{{asset($product->pimage)}}" width="50" height="40">
+                            <img src = "{{asset($product->pimage)}}" width="50" height="40">
                         @endif
                     </td>
-                    <td><a href="{{'product-edit-display/'.$product->id}}"><i class="fa-regular fa-pen-to-square"></i></a></td>
-                    <td><a href="{{'product-delete-data/'.$product->id}}"><i class="fa-solid fa-trash-arrow-up" style="color: #ff0000;"></i></a></td>
+                    <td><a href = "{{'product-edit-display/'.$product->id}}"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                    <td><a href = "{{'product-delete-data/'.$product->id}}"><i class="fa-solid fa-trash-arrow-up" style="color: #ff0000;"></i></a></td>
                 </tr>
             @endforeach
             <tr>

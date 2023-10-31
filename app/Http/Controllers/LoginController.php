@@ -11,8 +11,10 @@ use Illuminate\Support\Facades\session;
 
 class LoginController extends Controller
 {
-    // login data function start here
-    public function login_data(Request $request){
+    // loginData function start here
+    public function loginData(Request $request)
+    {
+
         $request->validate([
             'username' => 'required',
             'password' => 'required',
@@ -26,13 +28,16 @@ class LoginController extends Controller
         if ($user && $user->password === $credentials['password']) {
             // Authentication successful
             Auth::login($user);
+
             return redirect()->intended('add-page');
         }
+
         return redirect("login-form")->with('error', 'Oops! You have entered invalid credentials');
     }
 
 //   function for destroy the data by session
-    public function logout(){
+    public function logout()
+    {
         Session::flush();
         Auth::logout();
 

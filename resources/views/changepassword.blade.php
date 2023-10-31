@@ -1,9 +1,15 @@
 @extends('layouts.main')
 
+<!-- change password section starts -->
 @section('change-password-section')
+
+<!-- leftlist attached here -->
 @include('layouts/leftlist')
+
+<!-- content2 start here -->
 <div class="content2">
-    {{-- error handling cahnge password time --}}
+
+    <!-- error handling cahnge password time -->
     @if(session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
@@ -17,10 +23,11 @@
     @endif
 
     <h4>Change Password</h4>
+
     <!-- add-conatiner start here -->
     <div class="add-container">
         <div class="add-line">Change Password</div>
-        {{-- form start here --}}
+        <!-- form start here -->
         <form method="post" action="{{route('change.password')}}">
             @csrf
             <input type="hidden" name="editid"/>

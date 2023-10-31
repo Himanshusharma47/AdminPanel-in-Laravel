@@ -1,22 +1,26 @@
 @extends('layouts.main')
 
-{{-- add product section start here --}}
+ <!-- add product section start here -->
 @section('add-product-section')
+
+ <!-- Leftlist Attached here -->
 @include('layouts/leftlist')
+
 <!-- content2 start  -->
 <div class="content2">
     <h4>Page Product</h4>
+
     <!-- add-conatiner start here -->
     <div class="add-container">
         <div class="add-line">Add Product</div>
-        {{-- form start here --}}
+        <!-- form start here -->
         <form method="post" enctype="multipart/form-data" action="{{isset($findrow) ? url('product-edit-data/' . $findrow[0]->id) :route('add.product.data')}}">
             @csrf
-            <input type="hidden" name="editid"  />
 
+            <input type="hidden" name="editid"  />
             <!-- parent table start here -->
             <table class="parent-table">
-                {{--  select category div start here --}}
+                <!--  select category div start here -->
                 @if((request()->routeIs('add.product')))
                 <tr>
                     <td class="rightalign">Select Category*</td>
@@ -54,11 +58,11 @@
                @endif
             </table>
             <!-- parent table end here -->
-            {{-- save btn  --}}
+            <!-- save btn  -->
              <input  class="sv-btn" type="submit" name="save" value="Save"/>  <input class="cl-btn" type="button" name="cancel" value="Cancel"/>
         </form>
     </div>
     <!-- add-container end here -->
 </div>
-    <!-- content2 end  -->
+<!-- content2 end  -->
 @endsection

@@ -1,13 +1,18 @@
 @extends('layouts.main')
+
 {{-- login form section start here --}}
 @section('login-form')
-    <!-- content start here  -->
-    <div class="table-content" >
-        @if(session('error'))
+
+<!-- content start here  -->
+<div class="table-content">
+
+    <!-- session for error handling -->
+    @if(session('error'))
         <div class="error-danger">
             {{ session('error') }}
         </div>
-        @endif
+    @endif
+
     <form action="{{ route('login.data') }}" method="post">
         @csrf
         <!-- login table starts here -->
@@ -16,7 +21,6 @@
                 <td></td>
                 <td class="log">Login</td>
             </tr>
-
             <tr>
                 <td>Username</td>
                 <td><input type="text" name="username"  required autofocus/>

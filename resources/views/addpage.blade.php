@@ -9,6 +9,7 @@
 <!-- content2 start  -->
 <div class="content2">
     <h4>Page Manager</h4>
+
     <!-- add-conatiner start here -->
     <div class="add-container">
         <div class="add-line">Add Page</div>
@@ -19,7 +20,6 @@
 
             <!-- parent table start here -->
             <table class="parent-table">
-
                 <tr>
                     <td class="rightalign">Name*</td>
                     <td><input class="length" value="{{isset($findrow[0]->name) ? $findrow[0]->name : ''}}" name="name" type="text" required/></td>
@@ -48,5 +48,5 @@
     </div>
     <!-- add-container end here -->
 </div>
-    <!-- content2 end  -->
+<!-- content2 end  -->
 @endsection

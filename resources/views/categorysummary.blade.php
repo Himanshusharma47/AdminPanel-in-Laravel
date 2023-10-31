@@ -1,16 +1,17 @@
 @extends('layouts.main')
 
-{{-- category summary start here --}}
+<!-- category summary start here -->
 @section('category-summary-section')
 
 @include('layouts/leftlist');
 
 <!-- content2 start  -->
 <div class="content2">
+
     <h4 class="pm">Category Manager</h4>
     <p class="thisline">This section display the list of Catogories. </p>
     <p class="clickline"><a href="#">Click here</a> to create <a href="#">New Category</a></p>
-    {{-- form start here --}}
+    <!-- form start here -->
     <form method="post" action="{{route('search.category')}}">
         @csrf
         <!-- search-table start  here -->
@@ -24,7 +25,6 @@
                 <button type="submit" id="sr-btn">Search</button>
                 </td>
             </tr>
-
         </table>
         <!-- search-table end here  -->
     </form>
@@ -57,11 +57,9 @@
                     {{$data->links('pagi')}}
                 </td>
             </tr>
-
         </tbody>
     </table>
     <!-- idtable end here -->
 </div>
 <!-- content2 end  -->
-
 @endsection

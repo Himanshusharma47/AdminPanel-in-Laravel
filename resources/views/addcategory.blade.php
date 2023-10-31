@@ -9,6 +9,7 @@
 <!-- content2 start  -->
 <div class="content2">
     <h4>Page Category</h4>
+
     <!-- add-conatiner start here -->
     <div class="add-container">
         <div class="add-line">Add Category</div>
@@ -31,5 +32,5 @@
     </div>
     <!-- add-container end here -->
 </div>
-    <!-- content2 end  -->
+ <!-- content2 end  -->
 @endsection

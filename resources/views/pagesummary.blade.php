@@ -1,14 +1,19 @@
-
 @extends('layouts.main')
-{{-- page summary section start here --}}
+
+<!-- page summary section start here -->
 @section('page-summary-section')
+
+<!-- leftlist attached here -->
 @include('layouts/leftlist')
+
 <!-- content2 start  -->
 <div class="content2">
+
     <h4 class="pm">Page Manager</h4>
     <p class="thisline">This section display the list of pages </p>
     <p class="clickline"><a href="#">Click here</a> to create <a href="#">New Page</a></p>
-    {{-- form start here--}}
+
+    <!-- form start here-->
     <form  method="post" action="{{route('search')}}">
         @csrf
         <!-- search-table start  here -->
@@ -31,7 +36,7 @@
 
     <!-- id-table start here -->
     <table class="id-table">
-        {{-- heading start here --}}
+        <!-- heading start here -->
         <thead>
             <tr>
                 <th>Id</th>
@@ -42,7 +47,7 @@
                 <th>Delete</th>
             </tr>
         </thead>
-        {{-- body start here --}}
+        <!-- body start here -->
         <tbody>
             @foreach ($data as $val )
             <tr>
